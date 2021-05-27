@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Statistique } from './models/statistique';
+import { StatistiqueService } from './services/statistique.service';
 
 @Component({
   selector: 'app-root',
@@ -9,29 +10,9 @@ import { Statistique } from './models/statistique';
 export class AppComponent {
   public tabStatistique: Statistique[] = [];
 
-  constructor() {
-    this.tabStatistique.push(
-      new Statistique(
-        'fa1f5f40-be3b-11eb-91ec-7f5875ecfb46',
-        'Démographique en France',
-        '60M',
-        'SUCCESS'
-      ),
-      new Statistique(
-        'fa1f5f40-be3b-11eb-91ec-7f5875ecfb47',
-        'Démographique en Irlande',
-        '25M',
-        'SUCCESS'
-      )
-    );
-
-    this.tabStatistique.push(
-      new Statistique(
-        'fa1f5f40-be3b-11eb-91ec-7f5875ecfb48',
-        'Démographique au Luxemboug',
-        '15M',
-        'SUCCESS'
-      )
-    );
+  constructor(public serviceApi: StatistiqueService) {
+    this.serviceApi.getStatistiques().then((retourApi) => {
+      if (retourApi.data) this.tabStatistique = retourApi.data;
+    });
   }
 }
