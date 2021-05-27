@@ -15,4 +15,14 @@ export class AppComponent {
       if (retourApi.data) this.tabStatistique = retourApi.data;
     });
   }
+
+  supprimerStatistique(Statistiques: Statistique) {
+    this.serviceApi
+      .supprimerStatistique(Statistiques.identifiant)
+      .then((retourApi) => {
+        if (retourApi.statut !== 'OK') {
+          alert('Problème lors de la suppression');
+        }
+      });
+  }
 }

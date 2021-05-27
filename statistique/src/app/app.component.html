@@ -5,6 +5,7 @@
       class="col-md-3"
       *ngFor="let c of tabStatistique"
       [uneStatistique]="c"
+      (demandeSuppression)="supprimerStatistique(c)"
     >
     </app-statistique>
   </div>

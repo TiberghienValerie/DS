@@ -8,6 +8,14 @@
       <p>Valeur : {{ uneStatistique.valeur }}</p>
       <p>Appreciation : {{ uneStatistique.appreciation }}</p>
     </div>
-    <div class="card-footer text-muted"></div>
+    <div class="card-footer text-muted">
+      <button
+        class="btn-danger btn"
+        type="button"
+        (click)="traiterClicSupprimer()"
+      >
+        Supprimer
+      </button>
+    </div>
   </div>
 </div>

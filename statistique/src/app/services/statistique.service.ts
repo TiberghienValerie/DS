@@ -33,4 +33,24 @@ export class StatistiqueService {
         }
       );
   }
+
+  supprimerStatistique(idStatistique: string): Promise<RetourApi<void>> {
+    return this.http
+      .delete(this.API_URL + idStatistique)
+      .toPromise()
+      .then(
+        () => {
+          let position = this.tabStatistiques.findIndex(
+            (s) => s.identifiant === idStatistique
+          );
+          if (position != -1) {
+            this.tabStatistiques.splice(position, 1);
+          }
+          return { statut: 'OK' };
+        },
+        () => {
+          return { statut: 'KO' };
+        }
+      );
+  }
 }
