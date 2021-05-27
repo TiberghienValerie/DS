@@ -24,5 +24,14 @@ export class AppComponent {
         'SUCCESS'
       )
     );
+
+    this.tabStatistique.push(
+      new Statistique(
+        'fa1f5f40-be3b-11eb-91ec-7f5875ecfb48',
+        'Démographique au Luxemboug',
+        '15M',
+        'SUCCESS'
+      )
+    );
   }
 }
