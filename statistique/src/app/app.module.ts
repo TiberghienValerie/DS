@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { FormStatistiqueComponent } from './form-statistique/form-statistique.component';
 import { FormsModule } from '@angular/forms';
+import { BordureDirective } from './bordure.directive';
 
 @NgModule({
-  declarations: [AppComponent, StatistiqueComponent, FormStatistiqueComponent],
+  declarations: [AppComponent, StatistiqueComponent, FormStatistiqueComponent, BordureDirective],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

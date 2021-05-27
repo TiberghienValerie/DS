@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Statistique } from '../models/statistique';
+import { Appreciation, Statistique } from '../models/statistique';
 
 @Component({
   selector: 'app-statistique',

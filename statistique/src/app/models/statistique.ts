@@ -1,4 +1,4 @@
-export type Appreciation = 'SUCCESS' | 'WARNING' | 'DANGER';
+export type Appreciation = 'SUCCESS' | 'WARNING' | 'ERROR';
 
 export class Statistique {
   constructor(
