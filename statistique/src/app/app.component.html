@@ -1,0 +1,11 @@
+<h1 class="m-3">Liste de mes statistiques</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <p *ngFor="let c of tabStatistique">
+        {{ c.titre }}
+      </p>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
