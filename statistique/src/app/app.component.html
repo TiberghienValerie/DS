@@ -1,11 +1,9 @@
 <h1 class="m-3">Liste de mes statistiques</h1>
 <div class="container-fluid">
   <div class="row">
-    <app-statistique
-      class="col-md-3"
-      *ngFor="let c of tabStatistique"
-      [uneStatistique]="c"
-    >
+    <app-statistique class="col-md-3" [uneStatistique]="tabStatistique[0]">
+    </app-statistique>
+    <app-statistique class="col-md-3" [uneStatistique]="tabStatistique[1]">
     </app-statistique>
   </div>
 </div>
