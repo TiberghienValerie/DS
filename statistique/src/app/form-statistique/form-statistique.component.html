@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="card card-stats">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #employeForm="ngForm">
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label for="nom">Titre : </label>
+            <input
+              type="text"
+              id="titre"
+              class="form-control"
+              [(ngModel)]="titre"
+              name="titre"
+              required
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="valeur">Valeur : </label>
+            <input
+              type="text"
+              id="valeur"
+              class="form-control"
+              [(ngModel)]="valeur"
+              name="valeur"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label for="appreciation">Appreciation : </label>
+            <select
+              id="appreciation"
+              name="appreciation"
+              [(ngModel)]="appreciation"
+            >
+              <option value="SUCCESS">SUCCESS</option>
+              <option value="WARNING">WARNING</option>
+              <option value="DANGER">DANGER</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <button
+              class="btn btn-success"
+              type="submit"
+              [disabled]="!employeForm.form.valid"
+            >
+              <span>Ajouter</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

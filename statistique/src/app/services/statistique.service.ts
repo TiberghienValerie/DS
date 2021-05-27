@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RetourApi } from '../models/retourApi';
-import { Statistique } from '../models/statistique';
+import { Appreciation, Statistique } from '../models/statistique';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +47,41 @@ export class StatistiqueService {
             this.tabStatistiques.splice(position, 1);
           }
           return { statut: 'OK' };
+        },
+        () => {
+          return { statut: 'KO' };
+        }
+      );
+  }
+
+  creerStatistique(
+    title: string,
+    value: string,
+    appreciation: Appreciation
+  ): Promise<RetourApi<Statistique>> {
+    let donneesSaisies = {
+      title: title,
+      value: value,
+      appreciation: appreciation,
+    };
+
+    return this.http
+      .post(this.API_URL, donneesSaisies)
+      .toPromise()
+      .then(
+        (data: any) => {
+          let nouvelleStatistique = new Statistique(
+            data.id,
+            data.title,
+            data.value,
+            data.appreciation
+          );
+
+          this.tabStatistiques.push(nouvelleStatistique);
+          return {
+            statut: 'OK',
+            data: nouvelleStatistique,
+          };
         },
         () => {
           return { statut: 'KO' };
